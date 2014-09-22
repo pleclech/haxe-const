@@ -61,6 +61,13 @@ class Main {
 		trace(demo.b.hello);
 		demo.b.hello = "hi-hi";
 
+		// Function arguments:
+		function test(const:Const<Int>){
+			// const = 7; error!
+			trace(const); // 42 OK
+		}
+		test(new Const(42));
+
 		// The Only Hack =)
 		demo = new Const(new Demo());
 	}

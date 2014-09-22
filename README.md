@@ -69,6 +69,13 @@ Hacking Consts (can be useful)
 ```haxe
 // The Only Hack =)
 demo = new Const(new Demo()); // where demo -> already instantiated Const
+
+// Function arguments:
+function test(const:Const<Int>){
+	// const = 7; error!
+	trace(const); // 42 OK
+}
+test(new Const(42));
 ```
 
 Known Bugs *!need help!*
