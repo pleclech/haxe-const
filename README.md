@@ -2,3 +2,88 @@ haxe-const
 ==========
 
 Constants implemented for Haxe language with help of abstracts
+Maybe you want macro version instead?
+
+Installation & Usage
+=====
+Quick install:
+```
+haxelib git haxeconst https://github.com/PeyTy/haxe-const.git
+```
+Quick update:
+```
+haxelib update haxeconst
+```
+
+No ```import``` required!
+Just create instance of Const class.
+
+```haxe
+// Ints:
+var c = new Const(56);
+// c = 7; error!
+// c++; error! No A++ ++A A-- --A for consts!
+var x:Int = c;
+trace(c+1);
+trace(c*10);
+trace(c/10);
+trace(c-1);
+trace(1-c);
+
+// Floats:
+var c = new Const(56.65);
+// c = 123.456; error!
+var x:Float = c;
+trace(c+1);
+trace(c*10);
+trace(c/10.0);
+trace(c-1);
+
+// Strings:
+var s = new Const("hello");
+// s = "string"; error!
+trace(s);
+trace(s.length);
+
+// Arrays:
+var a = new Const([1,2,3]);
+// a = [1]; error!
+a.push(4);
+trace(a);
+trace(a.length);
+var ar:Array<Int> = a;
+
+// Anything:
+var demo = new Const(new Demo());
+// demo = new Demo(); error!
+// demo.b = { hello : "um?" }; error!
+trace(demo);
+trace(demo.a);
+demo.a = 101;
+trace(demo.b.hello);
+demo.b.hello = "hi-hi";
+```
+
+Hacking Consts (can be useful)
+=====
+```haxe
+// The Only Hack =)
+demo = new Const(new Demo()); // where demo -> already instantiated Const
+```
+
+Known Bugs *!need help!*
+=====
+```haxe
+// Ints:
+var c = new Const(56);
+var x:Int = c;
+trace(x+c); // bug
+```
+
+```haxe
+// Floats:
+var c = new Const(56.65);
+var x:Float = c;
+trace(x-c); // bug
+trace(x+c); // bug
+```
