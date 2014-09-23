@@ -14,7 +14,10 @@ Quick update:
 ```
 haxelib update haxeconst
 ```
-
+Add to build.hxml:
+```
+-lib haxeconst
+```
 No ```import``` required!
 Just create instance of Const class.
 
