@@ -1,7 +1,7 @@
 haxe-const
 ==========
 
-Constants implemented for Haxe language with help of abstracts
+Constants implemented for Haxe language with help of abstracts<br>
 Maybe you want macro version instead?
 
 Installation & Usage
@@ -54,6 +54,12 @@ trace(a.length);
 var ar:Array<Int> = a;
 
 // Anything:
+
+class Demo {
+	public var a:Int = 100;
+	public var b = new Const({ hello : "hi!" });
+}
+
 var demo = new Const(new Demo());
 // demo = new Demo(); error!
 // demo.b = { hello : "um?" }; error!
@@ -85,6 +91,7 @@ Known Bugs *!need help!*
 var c = new Const(56);
 var x:Int = c;
 trace(x+c); // bug
+trace(-c); // bug
 ```
 
 ```haxe
@@ -93,4 +100,5 @@ var c = new Const(56.65);
 var x:Float = c;
 trace(x-c); // bug
 trace(x+c); // bug
+trace(-c); // bug
 ```
