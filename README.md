@@ -4,6 +4,9 @@ haxe-const
 Constants implemented for Haxe language with help of abstracts<br>
 Maybe you want macro version instead?
 
+<a href="http://peyty.github.io#donate"><img src="http://peyty.github.io/images/donate.png"></a>
+<a href="http://peyty.github.io#hireme"><img src="http://peyty.github.io/images/hireme.png"></a>
+
 Installation & Usage
 =====
 Quick install:
