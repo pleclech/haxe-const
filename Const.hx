@@ -27,7 +27,7 @@ abstract Const<T>(T) to T {
         this = inst;
     }
     // A+B
-    @:op(A+B) 
+    @:op(A+B)
     public inline function add(rhs:Int) {
     	var t:Int = cast this;
     	return t + rhs;
@@ -82,4 +82,14 @@ abstract Const<T>(T) to T {
     	return cast -t;
     }
 
+    // Value getter
+    public var value(get,never):T;
+    public inline function get_value():T
+    return this;
+}
+
+class Tools {
+	// Short functional syntax support
+	public static inline function const<T>(v:T)
+	return new Const(v);
 }

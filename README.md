@@ -21,11 +21,15 @@ Add to build.hxml:
 ```
 -lib haxeconst
 ```
-No ```import``` required!
-Just create instance of Const class.
+No ```import``` required if you use OOP syntax: ```var c = new Const(value);```
+For short functional syntax, use  ```import Const.Tools.const;``` and then ```var c = const(value);```
+
+Just create instance of Const class or use function ```const``` from ```import Const.Tools.const;```:
 
 ```haxe
 // Ints:
+var c = const(56);
+// same as:
 var c = new Const(56);
 // c = 7; error!
 // c++; error! No A++ ++A A-- --A for consts!
