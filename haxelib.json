@@ -1,0 +1,10 @@
+{
+    "name": "haxeconst",
+    "url": "https://github.com/PeyTy/haxe-const.git",
+    "license": "MIT",
+    "tags": ["let", "constants", "const", "abstract", "language", "feature"],
+    "description": "Constants implemented for Haxe language with help of abstracts",
+    "version": "1.1.0",
+    "releasenote": "Short syntax support & value getter & demo updates",
+    "contributors": ["PeyTy"]
+}
