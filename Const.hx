@@ -22,7 +22,7 @@ SOFTWARE. */
 
 @:forward
 abstract Const<T>(T) to T {
-    public function new(inst:T)
+    public inline function new(inst:T)
     {
         this = inst;
     }
