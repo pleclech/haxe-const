@@ -28,58 +28,67 @@ abstract Const<T>(T) to T {
     }
     // A+B
     @:op(A+B)
-    public inline function add(rhs:Int) {
-    	var t:Int = cast this;
-    	return t + rhs;
+    @:commutative
+    public static inline function addI(lhs:Const<Int>, rhs:Int) {
+    	return lhs.value + rhs;
     }
     @:op(A+B)
-    public inline function addF(rhs:Float) {
-    	var t:Float = cast this;
-    	return t + rhs;
+    @:commutative
+    public static inline function addF(lhs:Const<Float>, rhs:Float) {
+    	return lhs.value + rhs;
     }
     // A*B
     @:op(A*B)
-    public inline function mul(rhs:Int):Int {
-    	var t:Int = cast this;
-    	var r:Int = cast rhs;
-    	return t * r;
+    @:commutative
+    public static inline function mulI(lhs:Const<Int>, rhs:Int) {
+    	return lhs.value * rhs;
     }
     @:op(A*B)
-    public inline function mulF(rhs:Float):Float {
-    	var t:Int = cast this;
-    	var r:Int = cast rhs;
-    	return t * r;
+    @:commutative
+    public static inline function mulF(lhs:Const<Float>, rhs:Float) {
+    	return lhs.value * rhs;
     }
     // A/B
     @:op(A/B)
-    public inline function div(rhs:Int):Int {
-    	return Math.round(cast(this,Int) / rhs);
+    public static inline function divCI(lhs:Const<Int>, rhs:Int) {
+    	return Math.round(lhs.value / rhs);
     }
     @:op(A/B)
-    public inline function divF(rhs:Float):Float {
-    	var f:Float = cast this;
-    	return f / rhs;
+    public static inline function divIC(lhs:Int, rhs:Const<Int>) {
+    	return Math.round(lhs / rhs.value);
+    }
+    @:op(A/B)
+    public static inline function divCF(lhs:Const<Float>, rhs:Float) {
+    	return lhs.value / rhs;
+    }
+    @:op(A/B)
+    public static inline function divFC(lhs:Float, rhs:Const<Float>) {
+    	return lhs / rhs.value;
     }
     // A-B
     @:op(A-B)
-    public inline function sub(rhs:Int) {
-    	var t:Int = cast this;
-    	return t - rhs;
+    public static inline function subCI(lhs:Const<Int>, rhs:Int) {
+    	return lhs.value - rhs;
     }
     @:op(A-B)
-    public inline function subF(rhs:Float) {
-    	var t:Float = cast this;
-    	return t - rhs;
+    public static inline function subIC(lhs:Int, rhs:Const<Int>) {
+    	return lhs - rhs.value;
     }
-    @:op(B-A)
-    public inline function subF2(rhs:Float) {
-    	var t:Float = cast this;
-    	return rhs - t;
+    @:op(A-B)
+    public static inline function subCF(lhs:Const<Float>, rhs:Float) {
+    	return lhs.value - rhs;
+    }
+    @:op(A-B)
+    public static inline function subFC(lhs:Float, rhs:Const<Float>) {
+    	return lhs - rhs.value;
     }
     @:op(-A)
-    public inline function neg():Int {
-    	var t:Int = cast this;
-    	return cast -t;
+    public static inline function negI(that:Const<Int>) {
+    	return -that.value;
+    }
+    @:op(-A)
+    public static inline function negF(that:Const<Float>) {
+    	return -that.value;
     }
 
     // Value getter
