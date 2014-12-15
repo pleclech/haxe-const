@@ -24,35 +24,39 @@ class Main {
 
 		// Ints:
 		var c = new Const(56);
-		// c = 7; error!
-		// c++; error! No A++ ++A A-- --A for consts!
+		// c = 7; // error!
+		// c++; // error! No A++ ++A A-- --A for consts!
 		var x:Int = c;
 		trace(c+x);
 
 		// using const value:
 
-		//trace(x+c); // bug
+		trace(x+c); // ok now
 		trace(x+c.value); // ok
 
 		//c.value++; // error! No A++ ++A A-- --A for consts values!
 
 		trace(c+1);
 		trace(c*10);
+		trace(10*c);
 		trace(c/10);
+		trace(10/c);
 		trace(c-1);
 		trace(1-c);
 
 		// Floats:
 		var c = new Const(56.65);
-		// c = 123.456; error!
+		// c = 123.456; // error!
 		var x:Float = c;
-		//trace(x-c); // bug
+		trace(x-c); // ok now
 		trace(x-c.value); // ok
-		//trace(x+c); // bug
+		trace(x+c); // ok now
 		trace(x+c.value); // ok
 		trace(c+1);
-		trace(c*10);
+		trace(c*10.0);
+		trace(10.0*c);
 		trace(c/10.0);
+		trace(10.0/c);
 		trace(c-1);
 
 		// Strings:
